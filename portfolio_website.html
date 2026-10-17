@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mukesh Pandeya</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            amber: '#f59e0b',
+                            red: '#ef4444'
+                        },
+                        darkbg: '#0a0a0c',
+                        darkcard: '#121217',
+                        lightbg: '#f8fafc',
+                        lightcard: '#ffffff'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 4s infinite ease-in-out',
+                        'float': 'float 6s infinite ease-in-out',
+                        'spin-slow': 'spin 12s linear infinite'
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { opacity: 0.4, transform: 'scale(1)' },
+                            '50%': { opacity: 0.8, transform: 'scale(1.05)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        * {
+            cursor: url('cursor.webp') 16 16, auto;
+        }
+        h1, h2, h3, .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .bg-watermark {
+            background-image: url('Mr_pandu_logo_1.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .bg-theme-overlay {
+            background: linear-gradient(145deg, rgba(48, 34, 5, 0.24), rgba(21, 17, 8, 0.48));
+        }
+
+        .light .bg-theme-overlay {
+            background: linear-gradient(145deg, rgba(255, 215, 105, 0.48), rgba(255, 248, 220, 0.78));
+        }
+
+        /* Glassmorphism utility */
+        .glass-panel {
+            background: rgba(18, 18, 23, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .light .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        #obsessions .glass-panel {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-color: rgba(255, 255, 255, 0.22);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        #projects .glass-panel {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-color: rgba(255, 255, 255, 0.22);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        #contact .glass-panel {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-color: rgba(255, 255, 255, 0.22);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        #obsessions .glass-panel p {
+            color: #fff;
+        }
+
+        .light #obsessions .glass-panel {
+            background: rgba(255, 255, 255, 0.5);
+            border-color: rgba(255, 255, 255, 0.65);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 12px 32px rgba(71, 53, 10, 0.08);
+        }
+
+        /* Animated border accent */
+        .glow-border {
+            position: relative;
+        }
+        .glow-border::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, #f59e0b, #ef4444, #3b82f6, #10b981);
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0.6;
+            filter: blur(8px);
+            transition: opacity 0.3s ease;
+        }
+        .glow-border:hover::before {
+            opacity: 1;
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 650ms ease, transform 650ms cubic-bezier(0.2, 0.65, 0.3, 1);
+            transition-delay: var(--reveal-delay, 0ms);
+        }
+
+        .scroll-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .scroll-reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+        /* Scrollbar customization */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0c;
+        }
+        .light ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f59e0b;
+        }
+    </style>
+</head>
+
+<body class="bg-darkbg text-slate-100 min-h-screen relative overflow-x-hidden selection:bg-brand-500 selection:text-black">
+
+    <!-- Logo Image Background -->
+    <div class="fixed inset-0 bg-watermark pointer-events-none opacity-35 z-0"></div>
+    <div class="fixed inset-0 bg-theme-overlay pointer-events-none z-0 transition-colors duration-300" id="bgGradientOverlay"></div>
+
+    <!-- Interactive Glowing Canvas Lights -->
+    <div class="fixed top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-amber/15 rounded-full blur-[140px] pointer-events-none animate-pulse-glow z-0"></div>
+    <div class="fixed bottom-10 right-10 w-[350px] h-[350px] bg-brand-red/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="relative z-10 flex flex-col min-h-screen">
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-8 py-8 space-y-24">
+
+            <!-- HERO SECTION -->
+            <section id="about" class="relative pt-6 sm:pt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                <!-- PERSONAL PHOTO -->
+                <div class="relative group my-4 w-full max-w-md lg:col-span-5 justify-self-center lg:justify-self-start">
+                    <div class="absolute -inset-2 bg-gradient-to-br from-yellow-300 via-brand-amber to-brand-red rounded-3xl blur-xl opacity-60 group-hover:opacity-90 transition duration-500"></div>
+                    <div class="relative h-[380px] sm:h-[480px] lg:h-[540px] w-full rounded-3xl overflow-hidden border border-amber-300/40 shadow-2xl">
+                        <img src="personal_photo.jpg" alt="Mr. Pandu Personal Photo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
+                    <!-- Hero Heading & Description -->
+                    <div class="max-w-3xl space-y-4">
+                        <h1 class="text-4xl sm:text-6xl font-bold tracking-tight text-slate-100 dark:text-slate-100 light:text-slate-900 leading-tight">
+                            Content Creator & <br>
+                            <span class="bg-gradient-to-r from-yellow-300 via-amber-500 to-red-500 bg-clip-text text-transparent">FiveM Developer</span>
+                        </h1>
+                        <p class="text-base sm:text-lg text-slate-300 dark:text-slate-300 light:text-slate-700 max-w-2xl font-normal leading-relaxed">
+                            Crafting high-performance GTA V roleplay maps, custom vehicle liveries, and detailed 3D assets.
+                        </p>
+                    </div>
+
+                    <!-- Call to Action Buttons -->
+                    <div class="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                        <a href="dev_projects.html" class="px-7 py-3.5 rounded-full bg-gradient-to-r from-brand-500 to-amber-600 text-black font-semibold shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:scale-105 transition-all duration-300 flex items-center gap-2">
+                            <i data-lucide="code-2" class="w-4 h-4"></i>
+                            Explore Dev Work
+                        </a>
+                        <a href="#contact" class="px-7 py-3.5 rounded-full glass-panel hover:bg-slate-800/80 text-slate-200 dark:text-slate-200 light:text-slate-800 font-semibold border border-slate-700/50 hover:border-brand-500/50 transition-all duration-300 flex items-center gap-2">
+                            <i data-lucide="mail" class="w-4 h-4"></i>
+                            Get In Touch
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- DEV PROJECTS GRID SECTION -->
+            <section id="projects" class="space-y-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-800 dark:border-slate-800 light:border-slate-200 pb-6">
+                    <div>
+                        <div class="text-brand-500 text-sm font-semibold tracking-widest uppercase mb-1">Portfolio Highlights</div>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-slate-100 dark:text-slate-100 light:text-slate-900">FiveM Dev Projects</h2>
+                    </div>
+                    <p class="text-slate-400 text-sm max-w-md">
+                        Custom GTA V assets, optimized map interiors (MLO), vehicle texturing, and performance-driven modding setups.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <article class="glass-panel p-6 rounded-2xl hover:translate-y-[-4px] transition-all duration-300 border border-slate-800/60">
+                        <h3 class="text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-900 mb-2">Trial center</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">Project showcase coming soon.</p>
+                    </article>
+                </div>
+
+            </section>
+
+            <!-- OBSESSIONS & INTERESTS SECTION -->
+            <section id="obsessions" class="space-y-8">
+                <div class="border-b border-slate-800 dark:border-slate-800 light:border-slate-200 pb-6">
+                    <div class="text-brand-500 text-sm font-semibold tracking-widest uppercase mb-1">Passions & Lifestyle</div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-100 dark:text-slate-100 light:text-slate-900">Obsessions & Creative Drive</h2>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- Interest 1 -->
+                    <div class="glass-panel p-6 rounded-2xl hover:translate-y-[-4px] transition-all duration-300 border border-slate-800/60">
+                        <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-400 mb-4">
+                            <i data-lucide="gamepad-2" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-900 mb-2">3D & Modding</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Deeply obsessed with bringing virtual cities to life—manipulating meshes in Blender, creating 3D props, and perfecting FiveM RP environments.
+                        </p>
+                    </div>
+
+                    <!-- Interest 2 -->
+                    <div class="glass-panel p-6 rounded-2xl hover:translate-y-[-4px] transition-all duration-300 border border-slate-800/60">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-4">
+                            <i data-lucide="video" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-900 mb-2">Streaming & Content</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Engaging with community on Kick (@mr_pandu0). High-octane gaming sessions in PUBG Mobile, Roblox, GTA V, and live community chats.
+                        </p>
+                    </div>
+
+                    <!-- Interest 3 -->
+                    <div class="glass-panel p-6 rounded-2xl hover:translate-y-[-4px] transition-all duration-300 border border-slate-800/60">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-4">
+                            <i data-lucide="bike" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-900 mb-2">Motovlogging</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Riding the **Hero XPulse 200 4V**. Exploring scenic mountain roads, helmet camera motovlogs, and capturing raw travel stories.
+                        </p>
+                    </div>
+
+                    <!-- Interest 4 -->
+                    <div class="glass-panel p-6 rounded-2xl hover:translate-y-[-4px] transition-all duration-300 border border-slate-800/60">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-4">
+                            <i data-lucide="cpu" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-900 mb-2">Electronics & Embedded</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Fascinated by electronics, signal processing, microcontroller hardware projects, and building custom PC/hardware rigs.
+                        </p>
+                    </div>
+
+                    <!-- Interest 5 -->
+                    <div class="glass-panel p-6 rounded-2xl hover:translate-y-[-4px] transition-all duration-300 border border-slate-800/60">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-4">
+                            <i data-lucide="music" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-900 mb-2">Rap & Lyrics Composition</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Writing rap lyrics and experimenting with rhythm and flow. Expressing real-life observations through musical storytelling.
+                        </p>
+                    </div>
+
+                    <!-- Interest 6 -->
+                    <div class="glass-panel p-6 rounded-2xl hover:translate-y-[-4px] transition-all duration-300 border border-slate-800/60">
+                        <div class="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 mb-4">
+                            <i data-lucide="sparkles" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-900 mb-2">Community & Storytelling</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Connecting with fans, hosting interactive events, and creating an immersive experience for gaming enthusiasts worldwide.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- CONTACT & FOOTER SECTION -->
+            <section id="contact" aria-label="Contact and social links" class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div aria-label="Business inquiries" class="glass-panel w-full rounded-3xl border border-slate-800/80 p-6 sm:p-8">
+                    <h2 class="mb-4 text-xl font-bold text-slate-100 dark:text-slate-100 light:text-slate-900">Business Queries</h2>
+                    <div class="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-white/20 bg-white/10 p-4">
+                        <a id="emailText" href="mailto:pand.y8muk.sh@gmail.com" class="flex min-w-0 items-center gap-3 text-sm font-medium text-slate-200 hover:text-brand-400 dark:text-slate-200 light:text-slate-800">
+                            <i data-lucide="mail" class="h-5 w-5 shrink-0 text-brand-400"></i>
+                            <span class="break-all">pand.y8muk.sh@gmail.com</span>
+                        </a>
+                        <button type="button" onclick="copyEmail()" class="inline-flex shrink-0 items-center gap-2 rounded-lg bg-brand-500/20 px-3 py-2 text-xs font-semibold text-brand-400 transition-colors hover:bg-brand-500/30" aria-label="Copy business email">
+                            <i data-lucide="copy" class="h-3.5 w-3.5"></i>
+                            <span id="copyBtnText">Copy</span>
+                        </button>
+                    </div>
+                    <p id="copyStatus" class="mt-2 min-h-5 text-xs text-slate-400" role="status" aria-live="polite"></p>
+                </div>
+
+                <div aria-label="Get in touch" class="glass-panel w-full rounded-3xl border border-amber-300/20 p-6 text-center sm:p-8">
+                    <h2 class="text-2xl font-bold text-slate-100 dark:text-slate-100 light:text-slate-900">Get In Touch</h2>
+                    <div class="mt-6 flex items-center justify-center gap-4 text-slate-100 dark:text-slate-100 light:text-slate-800">
+                        <a href="https://www.facebook.com/profile.php?id=61595197903696" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook" class="rounded-full p-3 glass-panel hover:text-blue-500 hover:scale-110 transition-all">
+                            <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                                <path d="M13.4 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.6 1.6-1.6h1.7V3.5c-.3-.1-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.1H7v3.1h2.7v8z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/pand_y.muk_sh/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram" class="rounded-full p-3 glass-panel hover:text-pink-500 hover:scale-110 transition-all">
+                            <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                                <circle cx="12" cy="12" r="4"/>
+                                <circle cx="17.5" cy="6.5" r=".75" fill="currentColor" stroke="none"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@mrpandu101" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok" class="rounded-full p-3 glass-panel hover:text-white hover:scale-110 transition-all">
+                            <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 4v11.5a4 4 0 1 1-4-4"/>
+                                <path d="M14 4c.6 3 2.5 4.8 5 5"/>
+                            </svg>
+                        </a>
+                        <a href="https://discord.gg/VSGxxF6nUA" target="_blank" rel="noopener noreferrer" aria-label="Discord server" title="Discord server" class="rounded-full p-3 glass-panel hover:text-indigo-400 hover:scale-110 transition-all">
+                            <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                                <path d="M19.54 5.12a18.3 18.3 0 0 0-4.5-1.4l-.56 1.14a16.7 16.7 0 0 0-4.96 0l-.56-1.14a18.3 18.3 0 0 0-4.5 1.4C1.6 9.32.83 13.42 1.22 17.46a18.2 18.2 0 0 0 5.52 2.8l1.19-1.94a11.8 11.8 0 0 1-1.88-.9l.46-.36a13 13 0 0 0 11 0l.46.36c-.6.36-1.23.66-1.88.9l1.19 1.94a18.2 18.2 0 0 0 5.52-2.8c.47-4.68-.8-8.74-3.26-12.34ZM8.7 14.7c-1.08 0-1.97-.98-1.97-2.18s.87-2.18 1.97-2.18 1.99.99 1.97 2.18c0 1.2-.87 2.18-1.97 2.18Zm6.6 0c-1.08 0-1.97-.98-1.97-2.18s.87-2.18 1.97-2.18 1.99.99 1.97 2.18c0 1.2-.87 2.18-1.97 2.18Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="mt-20 border-t border-slate-800/80 dark:border-slate-800/80 light:border-slate-200 py-8 px-4 sm:px-8 text-center text-xs text-slate-500">
+            <div>
+                © <span id="year"></span> Mukesh Pandeya. All rights reserved.
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Dynamic Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Reveal page content as it enters the viewport.
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            const revealElements = [
+                ...document.querySelectorAll('#about > div, main > section:not(#about), #obsessions .grid > div')
+            ];
+
+            let cardIndex = 0;
+            revealElements.forEach((element) => {
+                element.classList.add('scroll-reveal');
+                if (element.matches('#obsessions .grid > div')) {
+                    element.style.setProperty('--reveal-delay', `${(cardIndex % 3) * 90}ms`);
+                    cardIndex += 1;
+                }
+            });
+
+            let revealFrame = 0;
+            const revealVisibleElements = () => {
+                revealFrame = 0;
+                revealElements.forEach((element) => {
+                    const bounds = element.getBoundingClientRect();
+                    if (bounds.top < window.innerHeight * 0.9 && bounds.bottom > 0) {
+                        element.classList.add('is-visible');
+                    }
+                });
+            };
+
+            const scheduleReveal = () => {
+                if (!revealFrame) {
+                    revealFrame = window.requestAnimationFrame(revealVisibleElements);
+                }
+            };
+
+            window.addEventListener('scroll', scheduleReveal, { passive: true });
+            window.addEventListener('resize', scheduleReveal);
+            revealVisibleElements();
+        }
+
+        // Copy business email with clipboard and legacy-browser support.
+        async function copyEmail() {
+            const emailText = 'pand.y8muk.sh@gmail.com';
+            const copyBtnText = document.getElementById('copyBtnText');
+            const copyStatus = document.getElementById('copyStatus');
+            let copied = false;
+
+            if (navigator.clipboard && window.isSecureContext) {
+                try {
+                    await navigator.clipboard.writeText(emailText);
+                    copied = true;
+                } catch (error) {
+                    copied = false;
+                }
+            }
+
+            if (!copied) {
+                const tempInput = document.createElement('textarea');
+                tempInput.value = emailText;
+                tempInput.setAttribute('readonly', '');
+                tempInput.style.position = 'fixed';
+                tempInput.style.opacity = '0';
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                copied = document.execCommand('copy');
+                document.body.removeChild(tempInput);
+            }
+
+            copyBtnText.textContent = copied ? 'Copied!' : 'Copy failed';
+            copyStatus.textContent = copied ? 'Email copied to clipboard.' : 'Could not copy automatically. Select the email address to copy it.';
+            setTimeout(() => {
+                copyBtnText.textContent = 'Copy';
+                copyStatus.textContent = '';
+            }, 3000);
+        }
+
+    </script>
+</body>
+</html>
