@@ -64,6 +64,10 @@
             font-family: 'Inter', sans-serif;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
+        .page-shell {
+            min-height: 100vh;
+            min-height: 100dvh;
+        }
         * {
             cursor: url('pictures/cursor.webp') 16 16, auto;
         }
@@ -76,6 +80,13 @@
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
+        }
+
+        .bg-watermark,
+        #bgGradientOverlay {
+            bottom: auto;
+            height: 100vh;
+            height: 100lvh;
         }
 
         .bg-theme-overlay {
@@ -194,7 +205,7 @@
     </style>
 </head>
 
-<body class="bg-darkbg text-slate-100 min-h-screen relative overflow-x-hidden selection:bg-brand-500 selection:text-black">
+<body class="bg-darkbg text-slate-100 relative overflow-x-hidden selection:bg-brand-500 selection:text-black">
 
     <!-- Logo Image Background -->
     <div class="fixed inset-0 bg-watermark pointer-events-none opacity-35 z-0"></div>
@@ -205,7 +216,7 @@
     <div class="fixed bottom-10 right-10 w-[350px] h-[350px] bg-brand-red/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
     <!-- MAIN CONTAINER -->
-    <div class="relative z-10 flex flex-col min-h-screen">
+    <div class="page-shell relative z-10 flex flex-col">
 
         <!-- MAIN CONTENT AREA -->
         <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-8 py-8 space-y-24">
@@ -382,7 +393,7 @@
                                 <circle cx="17.5" cy="6.5" r=".75" fill="currentColor" stroke="none"/>
                             </svg>
                         </a>
-                        <a href="https://www.tiktok.com/@mrpandu101" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok" class="rounded-full p-3 glass-panel hover:text-white hover:scale-110 transition-all">
+                        <a href="https://www.tiktok.com/@mrpandu101" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok" class="rounded-full p-3 glass-panel hover:text-black hover:scale-110 transition-all">
                             <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M14 4v11.5a4 4 0 1 1-4-4"/>
                                 <path d="M14 4c.6 3 2.5 4.8 5 5"/>
