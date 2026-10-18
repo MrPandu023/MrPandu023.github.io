@@ -218,6 +218,13 @@ h1 {
     height: 100%;
 }
 
+.motovlogging-cards .project-card h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    text-align: center;
+}
+
 .motovlog-playlist {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
