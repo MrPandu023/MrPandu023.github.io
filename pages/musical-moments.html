@@ -10,48 +10,195 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="interest-pages.css">
     <style>
-        .moment-gallery {
+        .moment-event-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: minmax(0, 1fr);
             gap: 1.5rem;
             margin-top: 2rem;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 56rem;
         }
 
-        .moment-card {
-            background: rgba(15, 23, 42, 0.7);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
-        }
-
-        .moment-image {
-            height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(251,191,36,0.15), rgba(168,85,247,0.12));
-            color: #f8fafc;
-            font-size: 0.9rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .moment-content {
-            padding: 1.25rem;
-        }
-
-        .moment-content h2 {
-            margin: 0 0 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .moment-content p {
+        .moment-feature-photo {
+            position: relative;
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 5;
             margin: 0;
-            color: #cbd5e1;
-            line-height: 1.7;
+            overflow: hidden;
+            border: 1px solid rgba(252, 211, 77, .4);
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, .35);
         }
+
+        .moment-feature-photo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .moment-upcoming-photo {
+            background: linear-gradient(145deg, rgba(245, 158, 11, .18), rgba(15, 23, 42, .9));
+        }
+
+        .moment-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.25rem;
+            color: #f1f5f9;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, .7);
+        }
+
+        .moment-overlay::before {
+            position: absolute;
+            z-index: 0;
+            inset: 0;
+            opacity: 0;
+            transform: translateY(100%);
+            background: rgba(15, 23, 42, .7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            content: "";
+            transition: transform 650ms ease, opacity 450ms ease;
+            -webkit-mask-image: linear-gradient(to top, #000 0%, #000 35%, transparent 100%);
+            mask-image: linear-gradient(to top, #000 0%, #000 35%, transparent 100%);
+        }
+
+        .moment-overlay-title {
+            position: relative;
+            z-index: 1;
+            margin-bottom: .5rem;
+            font-family: "Space Grotesk", Inter, Arial, sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .moment-overlay-description {
+            position: relative;
+            z-index: 1;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(1rem);
+            font-size: .875rem;
+            line-height: 1.6;
+            color: #f1f5f9;
+            transition: max-height 650ms ease, transform 650ms ease, opacity 450ms ease;
+        }
+
+        .band-gallery {
+            width: 100%;
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+        }
+
+        .band-gallery h2 {
+            margin-bottom: 1.25rem;
+            color: #f8fafc;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .band-photo-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 1rem;
+        }
+
+        .band-photo-slot {
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: 0;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            border: 0;
+            border-radius: 1rem;
+            background: rgba(255, 255, 255, .08);
+            cursor: pointer;
+        }
+
+        .band-photo-slot:focus-visible {
+            outline: 2px solid #facc15;
+            outline-offset: 4px;
+        }
+
+        .band-photo-slot img {
+            position: absolute;
+            inset: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 700ms cubic-bezier(.2, .75, .25, 1), opacity 500ms ease;
+        }
+
+        .band-photo-parents {
+            z-index: 2;
+        }
+
+        .band-photo-dashain {
+            z-index: 1;
+            transform: translate(-10px, 10px) scale(.97);
+            opacity: .78;
+        }
+
+        .band-photo-slot.show-dashain .band-photo-dashain {
+            transform: none;
+            opacity: 1;
+        }
+
+        .band-photo-slot.show-dashain .band-photo-parents {
+            transform: translate(105%, -8%) rotate(9deg) scale(.94);
+            opacity: 0;
+        }
+
+        .band-photo-hint {
+            position: absolute;
+            z-index: 3;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: .9rem 1rem;
+            background: linear-gradient(transparent, rgba(15, 23, 42, .8));
+            color: #fff;
+            font-size: .875rem;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .moment-event:hover .moment-overlay::before,
+        .moment-feature-photo:focus-visible .moment-overlay::before {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .moment-event:hover .moment-overlay-description,
+        .moment-feature-photo:focus-visible .moment-overlay-description {
+            max-height: 15rem;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .moment-feature-photo:focus-visible {
+            outline: 2px solid #facc15;
+            outline-offset: 4px;
+        }
+
+        @media (min-width: 40rem) {
+            .moment-event-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+        }
+
     </style>
 </head>
 <body>
@@ -67,50 +214,71 @@
                     <h1>Musical Moments</h1>
                 </div>
 
-                <div class="card-grid">
-                    <article class="project-card">
-                        <h2>Past performances</h2>
-                        <p>These are the moments I’ve cherished on stage—live singing, audience energy, and unforgettable memories from programs I’ve performed in.</p>
+                <div class="moment-event-grid">
+                    <article class="moment-event">
+                        <figure class="moment-feature-photo" tabindex="0" aria-label="Annual Day 2020 performance details">
+                            <img src="../pictures/class9_performance.jpg" alt="Class 9 musical performance">
+                            <span class="moment-overlay">
+                                <span class="moment-overlay-title">Annual Day 2020</span>
+                                <span class="moment-overlay-description">Held on Poush 14 for SAMB’s Annual Day, this performance took place during the COVID period, with only a small audience in the hall. I played the keyboard alongside my seniors and, as the youngest artist, made a memory I’ll always cherish.</span>
+                            </span>
+                        </figure>
                     </article>
-                    <article class="project-card">
-                        <h2>Stage energy</h2>
-                        <p>Every performance brings a different vibe, from emotional songs to upbeat crowd moments that make the experience unforgettable.</p>
+                    <article class="moment-event">
+                        <figure class="moment-feature-photo" tabindex="0" aria-label="Performance details">
+                            <img src="../pictures/stage_performance.jpg" alt="Keyboard performance at a live event">
+                            <span class="moment-overlay">
+                                <span class="moment-overlay-title">Parent’s Day 2023</span>
+                                <span class="moment-overlay-description">I played guitar at this program in front of a lively audience of parents and guests in the auditorium. We performed multiple songs in this program and were delighted by the warm praise and encouragement from the audience.</span>
+                            </span>
+                        </figure>
                     </article>
-                    <article class="project-card">
-                        <h2>Memories to share</h2>
-                        <p>Here I’ll add photos, event names, and details from the programs I’ve taken part in over time. <a href="../index.html#obsessions">Back to all interests</a>.</p>
+                    <article class="moment-event">
+                        <figure class="moment-feature-photo" tabindex="0" aria-label="Add another program photo and details">
+                            <img src="../pictures/stage_performance2.jpg" alt="Add a photo from another musical program">
+                            <span class="moment-overlay">
+                                <span class="moment-overlay-title">Dashain Program 2023</span>
+                                <span class="moment-overlay-description">At SAMB’s open-air Dashain celebration, my band and I performed “Sanskriti” by Mantra Band on the main stage before a huge, concert-like crowd. As lead guitarist, I played electric guitar and powered the performance with chords that helped make the moment unforgettable.</span>
+                            </span>
+                        </figure>
                     </article>
-                </div>
-
-                <div class="moment-gallery">
-                    <article class="moment-card">
-                        <div class="moment-image">Program Photo</div>
-                        <div class="moment-content">
-                            <h2>Event name</h2>
-                            <p>Add the program name, date, and a short note about the performance and atmosphere.</p>
-                        </div>
-                    </article>
-
-                    <article class="moment-card">
-                        <div class="moment-image">Program Photo</div>
-                        <div class="moment-content">
-                            <h2>Event name</h2>
-                            <p>Add another memorable moment, performance detail, or crowd reaction from a past show.</p>
-                        </div>
-                    </article>
-
-                    <article class="moment-card">
-                        <div class="moment-image">Program Photo</div>
-                        <div class="moment-content">
-                            <h2>Event name</h2>
-                            <p>Use this space for a rehearsal moment, final performance, or a favorite stage highlight.</p>
-                        </div>
+                    <article class="moment-event">
+                        <figure class="moment-feature-photo moment-upcoming-photo" tabindex="0" aria-label="Upcoming performance">
+                            <span class="moment-overlay">
+                                <span class="moment-overlay-title">Yet to Perform</span>
+                                <span class="moment-overlay-description">A new musical moment is on the way. Check back after my next performance for photos and details.</span>
+                            </span>
+                        </figure>
                     </article>
                 </div>
+
+                <div class="band-gallery glass-panel">
+                    <h2>Some Moments with the Band</h2>
+                    <div class="band-photo-grid">
+                        <button class="band-photo-slot" id="bandPhotoShuffle" type="button" aria-label="Show Dashain band performance photo" aria-pressed="false" title="Click to shuffle band photos">
+                            <img class="band-photo-parents" src="../pictures/band_parentsday.JPG" alt="Band performing at Parent’s Day">
+                            <img class="band-photo-dashain" src="../pictures/band_dashain.JPG" alt="Band performing at Dashain">
+                            <span class="band-photo-hint">Click to see more</span>
+                        </button>
+                    </div>
+                </div>
+
             </section>
         </main>
         <footer>&copy; <span id="year"></span> Mukesh Pandeya. All rights reserved.</footer>
     </div>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const bandPhotoShuffle = document.getElementById('bandPhotoShuffle');
+        bandPhotoShuffle.addEventListener('click', () => {
+            const showingDashain = bandPhotoShuffle.classList.toggle('show-dashain');
+            bandPhotoShuffle.setAttribute('aria-pressed', String(showingDashain));
+            bandPhotoShuffle.setAttribute(
+                'aria-label',
+                showingDashain ? 'Show Parent’s Day band performance photo' : 'Show Dashain band performance photo'
+            );
+        });
+    </script>
 </body>
 </html>
