@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Musical moments, live performances, and memorable programs by Mukesh Pandeya.">
+    <title>Musical Moments | Mukesh Pandeya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="interest-pages.css">
+    <style>
+        .moment-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .moment-card {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+        }
+
+        .moment-image {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(251,191,36,0.15), rgba(168,85,247,0.12));
+            color: #f8fafc;
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .moment-content {
+            padding: 1.25rem;
+        }
+
+        .moment-content h2 {
+            margin: 0 0 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .moment-content p {
+            margin: 0;
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-watermark" aria-hidden="true"></div>
+    <div class="bg-theme-overlay" aria-hidden="true"></div>
+    <div class="bg-glow" aria-hidden="true"></div>
+    <div class="page">
+        <main>
+            <a class="back" href="../index.html"><span aria-hidden="true">&larr;</span> Back to portfolio</a>
+            <section>
+                <div class="glass-panel section-heading">
+                    <p class="eyebrow">Passions &amp; Lifestyle</p>
+                    <h1>Musical Moments</h1>
+                </div>
+
+                <div class="card-grid">
+                    <article class="project-card">
+                        <h2>Past performances</h2>
+                        <p>These are the moments I’ve cherished on stage—live singing, audience energy, and unforgettable memories from programs I’ve performed in.</p>
+                    </article>
+                    <article class="project-card">
+                        <h2>Stage energy</h2>
+                        <p>Every performance brings a different vibe, from emotional songs to upbeat crowd moments that make the experience unforgettable.</p>
+                    </article>
+                    <article class="project-card">
+                        <h2>Memories to share</h2>
+                        <p>Here I’ll add photos, event names, and details from the programs I’ve taken part in over time. <a href="../index.html#obsessions">Back to all interests</a>.</p>
+                    </article>
+                </div>
+
+                <div class="moment-gallery">
+                    <article class="moment-card">
+                        <div class="moment-image">Program Photo</div>
+                        <div class="moment-content">
+                            <h2>Event name</h2>
+                            <p>Add the program name, date, and a short note about the performance and atmosphere.</p>
+                        </div>
+                    </article>
+
+                    <article class="moment-card">
+                        <div class="moment-image">Program Photo</div>
+                        <div class="moment-content">
+                            <h2>Event name</h2>
+                            <p>Add another memorable moment, performance detail, or crowd reaction from a past show.</p>
+                        </div>
+                    </article>
+
+                    <article class="moment-card">
+                        <div class="moment-image">Program Photo</div>
+                        <div class="moment-content">
+                            <h2>Event name</h2>
+                            <p>Use this space for a rehearsal moment, final performance, or a favorite stage highlight.</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+        <footer>&copy; <span id="year"></span> Mukesh Pandeya. All rights reserved.</footer>
+    </div>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

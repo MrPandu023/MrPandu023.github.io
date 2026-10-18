@@ -185,22 +185,16 @@
             }
         }
 
-        /* Scrollbar customization */
-        ::-webkit-scrollbar {
-            width: 8px;
+        /* Hide scrollbars while keeping page scrolling */
+        html, body {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
-        ::-webkit-scrollbar-track {
-            background: #0a0a0c;
-        }
-        .light ::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #f59e0b;
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            display: none;
         }
     </style>
 </head>
@@ -299,7 +293,7 @@
                         </div>
                         <h3 class="text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-900 mb-2">3D & Modding</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            Deeply obsessed with bringing virtual cities to life—manipulating meshes in Blender, creating 3D props, and perfecting FiveM RP environments.
+                            Deeply obsessed with bringing virtual cities to life, manipulating meshes in Blender, creating 3D props, and perfecting FiveM RP environments.
                         </p>
                     </a>
 
@@ -310,7 +304,7 @@
                         </div>
                         <h3 class="text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-900 mb-2">Streaming & Content</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            Engaging with community on Kick (@mr_pandu0). High-octane gaming sessions in PUBG Mobile, Roblox, GTA V, and live community chats.
+                            Engaging with the community through YouTube, TikTok, and Kick with high-energy gaming sessions in PUBG Mobile, Roblox, GTA V, and live community chats.
                         </p>
                     </a>
 
@@ -337,13 +331,13 @@
                     </a>
 
                     <!-- Interest 5 -->
-                    <a href="pages/rap-lyrics.html" aria-label="Explore rap and lyric composition" class="glass-panel block rounded-2xl border border-slate-800/60 p-6 text-left transition-all duration-300 hover:translate-y-[-4px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-400">
+                    <a href="pages/musical-moments.html" aria-label="Explore musical moments and live performances" class="glass-panel block rounded-2xl border border-slate-800/60 p-6 text-left transition-all duration-300 hover:translate-y-[-4px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-400">
                         <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-4">
                             <i data-lucide="music" class="w-6 h-6"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-900 mb-2">Rap & Lyrics Composition</h3>
+                        <h3 class="text-lg font-bold text-slate-100 dark:text-slate-100 light:text-slate-900 mb-2">Musical Moments</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            Writing rap lyrics and experimenting with rhythm and flow. Expressing real-life observations through musical storytelling.
+                            A collection of memorable performances, stage highlights, and past program experiences where I’ll share photos and details from the shows I’ve done.
                         </p>
                     </a>
 
