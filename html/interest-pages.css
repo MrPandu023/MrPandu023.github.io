@@ -1,0 +1,325 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    background: #0a0a0c;
+    color: #f1f5f9;
+    color-scheme: dark;
+    font-family: Inter, Arial, sans-serif;
+}
+
+::selection {
+    background: #eab308;
+    color: #000;
+}
+
+* {
+    cursor: url('../pictures/cursor.webp') 16 16, auto;
+}
+
+h1, h2, p {
+    margin-top: 0;
+}
+
+h1, h2 {
+    font-family: "Space Grotesk", Inter, Arial, sans-serif;
+}
+
+a {
+    color: inherit;
+}
+
+a:focus-visible {
+    outline: 2px solid #facc15;
+    outline-offset: 4px;
+}
+
+.bg-watermark,
+.bg-theme-overlay,
+.bg-glow {
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.bg-watermark {
+    inset: 0;
+    background: url('../pictures/Mr_pandu_logo_1.jpg') center / cover fixed no-repeat;
+    opacity: .35;
+}
+
+.motovlogging-background {
+    background-image: url('../pictures/IMG_2417.JPG');
+}
+
+.bg-theme-overlay {
+    inset: 0;
+    background: linear-gradient(145deg, rgba(48, 34, 5, .24), rgba(21, 17, 8, .48));
+}
+
+.bg-glow {
+    top: 25%;
+    left: 50%;
+    width: 31.25rem;
+    height: 31.25rem;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: rgba(245, 158, 11, .15);
+    filter: blur(140px);
+}
+
+.page {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    max-width: 72rem;
+    flex: 1;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.back,
+.glass-panel,
+.project-card {
+    border: 1px solid rgba(255, 255, 255, .22);
+    background: rgba(255, 255, 255, .12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .14), 0 12px 32px rgba(0, 0, 0, .12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.back {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    gap: .5rem;
+    border-radius: 9999px;
+    padding: .75rem 1.25rem;
+    color: #fff;
+    font-size: .875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 150ms ease;
+}
+
+.back:hover {
+    color: #facc15;
+}
+
+section {
+    padding: 2rem 0 4rem;
+}
+
+.section-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .25rem;
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+    text-align: center;
+}
+
+.eyebrow {
+    margin: 0;
+    color: #facc15;
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 2.25rem;
+}
+
+.card-grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    margin: 2rem auto 0;
+}
+
+.project-card {
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.project-card h2 {
+    margin-bottom: .5rem;
+    color: #fff;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.project-card p {
+    margin-bottom: 0;
+    color: #e2e8f0;
+    font-size: .875rem;
+    line-height: 1.625;
+}
+
+.project-card a {
+    color: #facc15;
+    text-underline-offset: 3px;
+}
+
+.motovlogging-portrait {
+    width: 100%;
+    max-width: 28rem;
+    margin: 0 auto;
+}
+
+.motovlogging-photo-frame {
+    height: 380px;
+    overflow: hidden;
+    border: 1px solid rgba(252, 211, 77, .4);
+    border-radius: 1.5rem;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, .35);
+}
+
+.motovlogging-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.motovlogging-details {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.motovlogging-cards {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 0;
+}
+
+.motovlogging-cards .project-card {
+    height: 100%;
+}
+
+.motovlog-playlist {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .75rem;
+    margin: 1rem 0;
+}
+
+.motovlog-video {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    border: 1px solid rgba(255, 255, 255, .22);
+    border-radius: .65rem;
+    background: #0a0a0c;
+    text-decoration: none;
+}
+
+.motovlog-video img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 180ms ease;
+}
+
+.motovlog-video:hover img {
+    transform: scale(1.05);
+}
+
+.motovlog-video span {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: .35rem .5rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, .88));
+    color: #fff;
+    font-size: .8rem;
+    font-weight: 700;
+}
+
+.motovlog-playlist-link {
+    display: block;
+    text-align: center;
+}
+
+footer {
+    border-top: 1px solid rgba(30, 41, 59, .8);
+    padding: 1.5rem 1rem;
+    color: #94a3b8;
+    font-size: .75rem;
+    text-align: center;
+}
+
+@media (min-width: 40rem) {
+    main {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+
+    .section-heading {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+
+    h1 {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .motovlogging-photo-frame {
+        height: 480px;
+    }
+}
+
+@media (min-width: 64rem) {
+    .motovlogging-details {
+        display: grid;
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+        align-items: stretch;
+        gap: 2rem;
+    }
+
+    .motovlogging-portrait {
+        max-width: 28rem;
+        margin: 0;
+    }
+
+    .motovlogging-photo-frame {
+        height: 540px;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .motovlogging-cards {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
