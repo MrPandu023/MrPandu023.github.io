@@ -1,94 +1,86 @@
 Attached Element Context from Integrated Browser
 
-Element: a.hidden.sm:flex.items-center.gap-2.px-3.py-1.5.rounded-full.bg-emerald-500/10.border.border-emerald-500/30.text-emerald-400.text-xs.font-semibold.hover:bg-emerald-500/20.transition-all
+Element: article.project-card
 
-URL: file:///c%3A/Users/HP/Downloads/Personal/Website/portfolio_website.html
+URL: file:///c%3A/Users/HP/Downloads/Personal/Website/MrPandu023.github.io/pages/motovlogging.html
 
-HTML Path: div.relative.z-10.flex.flex-col.min-h-screen > header.sticky.top-0.z-50.px-4.sm:px-8.py-4 > nav.max-w-6xl.mx-auto.glass-panel.rounded-full.px-5.py-3.flex.items-center.justify-between.shadow-2xl.transition-all > div.flex.items-center.gap-3 > a.hidden.sm:flex.items-center.gap-2.px-3.py-1.5.rounded-full.bg-emerald-500/10.border.border-emerald-500/30.text-emerald-400.text-xs.font-semibold.hover:bg-emerald-500/20.transition-all
+HTML Path: div.page > main > section > div.motovlogging-details > div.card-grid.motovlogging-cards > article.project-card
 
 Outer HTML:
 ```html
-<a href="https://kick.com/mr_pandu0" target="_blank" rel="noopener noreferrer" class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold hover:bg-emerald-500/20 transition-all">
-                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-                        Kick @mr_pandu0
-                    </a>
+<article class="project-card">
+                            <h2>Sunkoshi Hydropower Bike Ride</h2>
+                            <p>Watch all four parts of the Sunkoshi Hydropower tour:</p>
+                            <div class="motovlog-playlist">
+                                <a class="motovlog-video" href="https://www.youtube.com/watch?v=k3U0WkLWW5Y&amp;list=PLDDY2bvRAI86QEfcHunQ8nmTh7VzN9hYt&amp;index=1" target="_blank" rel="noopener noreferrer">
+                                    <img src="https://img.youtube.com/vi/k3U0WkLWW5Y/hqdefault.jpg" alt="Sunkoshi Hydropower Bike Ride, Part 1 thumbnail" loading="lazy">
+                                    <span>Part 1</span>
+                                </a>
+                                <a class="motovlog-video" href="https://www.youtube.com/watch?v=r74kLJcNWwU&amp;list=PLDDY2bvRAI86QEfcHunQ8nmTh7VzN9hYt&amp;index=2" target="_blank" rel="noopener noreferrer">
+                                    <img src="https://img.youtube.com/vi/r74kLJcNWwU/hqdefault.jpg" alt="Sunkoshi Hydropower Bike Ride, Part 2 thumbnail" loading="lazy">
+                                    <span>Part 2</span>
+                                </a>
+                                <a class="motovlog-video" href="https://www.youtube.com/watch?v=19d3KLzmUuA&amp;list=PLDDY2bvRAI86QEfcHunQ8nmTh7VzN9hYt&amp;index=3" target="_blank" rel="noopener noreferrer">
+                                    <img src="https://img.youtube.com/vi/19d3KLzmUuA/hqdefault.jpg" alt="Sunkoshi Hydropower Bike Ride, Part 3 thumbnail" loading="lazy">
+                                    <span>Part 3</span>
+                                </a>
+                                <a class="motovlog-video" href="https://www.youtube.com/watch?v=ObVLa1-FxtA&amp;list=PLDDY2bvRAI86QEfcHunQ8nmTh7VzN9hYt&amp;index=4" target="_blank" rel="noopener noreferrer">
+                                    <img src="https://img.youtube.com/vi/ObVLa1-FxtA/hqdefault.jpg" alt="Sunkoshi Hydropower Bike Ride, Part 4 thumbnail" loading="lazy">
+                                    <span>Part 4</span>
+                                </a>
+                            </div>
+                            <a class="motovlog-playlist-link" href="https://www.youtube.com/playlist?list=PLDDY2bvRAI86QEfcHunQ8nmTh7VzN9hYt" target="_blank" rel="noopener noreferrer">Watch the full tour playlist on YouTube</a>
+                        </article>
 ```
 
 Dimensions:
-- top: 34px
-- left: 912px
-- width: 147px
-- height: 30px
+- top: 232px
+- left: 505px
+- width: 616px
+- height: 540px
 
 CSS:
 ```css
-*, ::before, ::after { --tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }
-*, ::after, ::before { box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb }
-a { color:inherit;text-decoration:inherit }
-.hidden { display:none }
-.items-center { align-items:center }
-.gap-2 { gap:0.5rem }
-.rounded-full { border-radius:9999px }
-.border { border-width:1px }
-.border-emerald-500\/30 { border-color:rgb(16 185 129 / 0.3) }
-.bg-emerald-500\/10 { background-color:rgb(16 185 129 / 0.1) }
-.px-3 { padding-left:0.75rem;padding-right:0.75rem }
-.py-1\.5 { padding-top:0.375rem;padding-bottom:0.375rem }
-.text-xs { font-size:0.75rem;line-height:1rem }
-.font-semibold { font-weight:600 }
-.text-emerald-400 { --tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1)) }
-.transition-all { transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms }
-.sm\:flex { display:flex }
+* { box-sizing: border-box; }
+* { cursor: url('../pictures/cursor.webp') 16 16, auto; }
+.back, .glass-panel, .project-card { border: 1px solid rgba(255, 255, 255, .22);
+    background: rgba(255, 255, 255, .12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .14), 0 12px 32px rgba(0, 0, 0, .12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px); }
+.project-card { border-radius: 1rem;
+    padding: 1.5rem; }
+.motovlogging-cards .project-card { height: 100%; }
 
 /* Pseudo-elements */
-::after, ::before { --tw-content:'' }
-.selection\:bg-brand-500 *::selection { --tw-bg-opacity:1;background-color:rgb(234 179 8 / var(--tw-bg-opacity, 1)) }
-.selection\:text-black *::selection { --tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1)) }
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-thumb { background: #334155;
-            border-radius: 4px; }
-::-webkit-scrollbar-track { background: #0a0a0c; }
+::selection { background: #eab308;
+    color: #000; }
 
 /* Inherited */
-body { font-family: 'Inter', sans-serif }
-body { line-height:inherit }
-.text-slate-100 { color:rgb(241 245 249 / var(--tw-text-opacity, 1)) }
-:host, html { line-height:1.5; tab-size:4; font-family:Inter, sans-serif; font-feature-settings:normal }
+* { cursor: url('../pictures/cursor.webp') 16 16, auto }
+body { color: #f1f5f9; font-family: Inter, Arial, sans-serif }
 
 /* Resolved values */
-padding: 6px 12px;
-border-radius: 9999px;
-border: 1px solid rgba(16, 185, 129, 0.3);
-text-decoration: rgb(52, 211, 153);
-align-items: center;
+padding: 24px;
+border-radius: 16px;
+border: 1px solid rgba(255, 255, 255, 0.22);
+backdrop-filter: blur(20px);
 background-attachment: scroll;
 background-clip: border-box;
-background-color: rgba(16, 185, 129, 0.1);
+background-color: rgba(255, 255, 255, 0.12);
 background-image: none;
 background-origin: padding-box;
 background-position-x: 0%;
 background-position-y: 0%;
 background-repeat: repeat;
 background-size: auto;
+box-shadow: rgba(255, 255, 255, 0.14) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.12) 0px 12px 32px 0px;
 box-sizing: border-box;
-color: rgb(52, 211, 153);
-column-gap: 8px;
-cursor: pointer /*UA*/;
-display: flex;
-font-family: Inter, sans-serif;
-font-feature-settings: normal;
-font-size: 12px;
-font-weight: 600;
-height: 30px;
-line-height: 16px;
-row-gap: 8px;
-tab-size: 4;
-transition-duration: 0.15s;
-transition-property: all;
-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-width: 147px;
-
-/* CSS variables */
---tw-bg-opacity: 1;
---tw-text-opacity: 1;
+color: rgb(241, 245, 249);
+cursor: url("file:///c%3A/Users/HP/Downloads/Personal/Website/MrPandu023.github.io/pictures/cursor.webp") 16 16, auto;
+display: block;
+font-family: Inter, Arial, sans-serif;
+height: 540px;
+unicode-bidi: isolate /*UA*/;
+width: 616px;
 ```

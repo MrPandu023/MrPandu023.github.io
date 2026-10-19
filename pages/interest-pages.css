@@ -61,8 +61,15 @@ a:focus-visible {
 
 .bg-watermark {
     inset: 0;
-    background: url('../pictures/Mr_pandu_logo_1.jpg') center / cover fixed no-repeat;
+    background: url('../pictures/Mr_pandu_logo_1.jpg') center / cover no-repeat;
     opacity: .35;
+}
+
+.bg-watermark,
+.bg-theme-overlay {
+    bottom: auto;
+    height: 100vh;
+    height: 100lvh;
 }
 
 .motovlogging-background {
