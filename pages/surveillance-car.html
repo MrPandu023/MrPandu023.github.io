@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Surveillance Car project, showcased at student science and technology events.">
+    <title>Surveillance Car | Mukesh Pandeya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="interest-pages.css">
+</head>
+<body>
+    <div class="bg-watermark surveillance-car-background" aria-hidden="true"></div>
+    <div class="bg-theme-overlay" aria-hidden="true"></div>
+    <div class="bg-glow" aria-hidden="true"></div>
+    <div class="page">
+        <main>
+            <a class="back" href="electronics-embedded.html"><span aria-hidden="true">&larr;</span> Back to Electronics &amp; Embedded</a>
+            <section>
+                <div class="glass-panel section-heading">
+                    <p class="eyebrow">Electronics &amp; Embedded Project</p>
+                    <h1>Surveillance Car</h1>
+                </div>
+
+                <div class="surveillance-copy">
+                    <div class="surveillance-intro">
+                        <div class="surveillance-gallery" aria-label="Surveillance Car photo">
+                            <figure>
+                                <img src="../pictures/survilence_carside.jpg" alt="Side view of the Surveillance Car" loading="lazy">
+                            </figure>
+                        </div>
+
+                        <article class="project-card">
+                            <h2>About the Project</h2>
+                            <p>Built by students at Sainik Awasiya Mahavidyalaya, Sallaghari, Bhaktapur, the Surveillance Car combines a remotely controlled vehicle, camera, and flashlight for mobile observation.</p>
+                            <p>A web page controls the wheels, camera pan and tilt, flashlight intensity, and driving speed. This lets an operator move the car and adjust its view remotely for exploration and observation.</p>
+                            <p>Separating vehicle movement from camera movement makes it possible to inspect the surroundings without repositioning the car.</p>
+                        </article>
+                    </div>
+
+                    <div class="surveillance-topic-grid">
+                        <div class="surveillance-primary-grid">
+                            <div class="surveillance-primary-column">
+                                <article class="project-card surveillance-topic surveillance-topic--features">
+                                    <h2>Key Features</h2>
+                                    <ul class="surveillance-feature-list">
+                                        <li>Four-wheel, remotely controlled movement.</li>
+                                        <li>Live camera view with adjustable pan and tilt.</li>
+                                        <li>Variable driving speed and adjustable flashlight intensity.</li>
+                                        <li>Smartphone-based control through a web interface.</li>
+                                        <li>Portable platform for mobile observation.</li>
+                                    </ul>
+                                </article>
+
+                                <article class="project-card surveillance-topic surveillance-topic--architecture">
+                                    <h2>Circuit &amp; System Architecture</h2>
+                                    <p>The smartphone sends driving and adjustment commands over Wi-Fi. The ESP32-CAM processes the commands, controls the drive and camera-positioning hardware, and returns the camera stream.</p>
+                                    <ol class="surveillance-flow" aria-label="Surveillance car system flow">
+                                        <li>Smartphone web interface</li>
+                                        <li>Wi-Fi connection</li>
+                                        <li>ESP32-CAM controller</li>
+                                        <li>L298N driver, motors, pan/tilt servos, and flashlight</li>
+                                    </ol>
+                                    <p class="surveillance-power-note"><strong>Power path:</strong> 12V battery supplies the car; a UBEC/buck converter steps voltage down for lower-voltage electronics.</p>
+                                </article>
+                            </div>
+
+                            <div class="surveillance-primary-column">
+                                <article class="project-card surveillance-topic surveillance-topic--specifications">
+                                    <h2>Hardware &amp; Software Specifications</h2>
+                                    <dl class="surveillance-spec-list">
+                                        <div><dt>Controller and camera</dt><dd>ESP32-CAM module. It processes control commands and provides the live camera stream.</dd></div>
+                                        <div><dt>Drive system</dt><dd>L298N motor driver and four DC motors. The driver controls the car's forward, reverse, and turning movements.</dd></div>
+                                        <div><dt>Camera positioning</dt><dd>Pan-and-tilt servo motors let the operator adjust the camera direction independently of the car.</dd></div>
+                                        <div><dt>Power</dt><dd>12V DC battery with a UBEC/buck converter to provide lower voltage for electronic components.</dd></div>
+                                        <div><dt>Other hardware</dt><dd>Chassis supports the vehicle components, and a controllable flashlight helps illuminate the view.</dd></div>
+                                        <div><dt>Firmware</dt><dd>C++ firmware developed with Arduino IDE coordinates the controls and connected hardware.</dd></div>
+                                        <div><dt>Operator interface</dt><dd>HTML web controls on a smartphone provide movement controls and adjustment sliders.</dd></div>
+                                        <div><dt>Communication</dt><dd>Wi-Fi carries the operator's control commands and returns the camera stream.</dd></div>
+                                    </dl>
+                                </article>
+                            </div>
+                        </div>
+
+                        <article class="project-card surveillance-topic surveillance-topic--wide">
+                            <h2>Live Demo / Media Showcase</h2>
+                            <video class="surveillance-video" controls preload="metadata" poster="../pictures/surveillance-car-video-thumbnail.png">
+                                <source src="../pictures/Surveillance%20Car%20Video.mp4" type="video/mp4">
+                                Your browser does not support embedded video. <a href="../pictures/Surveillance%20Car%20Video.mp4">Download the demo video</a>.
+                            </video>
+                        </article>
+
+                        <article class="project-card surveillance-topic">
+                            <h2>Challenges &amp; Future Improvements</h2>
+                            <ul class="surveillance-feature-list">
+                                <li>Driving is manual; the current build has no obstacle-detection sensors.</li>
+                                <li>Vehicle speed is limited, and the camera captures less detail at a distance.</li>
+                                <li>Wireless connectivity can drop; an external antenna could improve signal strength and range.</li>
+                                <li>Adding obstacle sensors and improving low-light camera capability could make future versions more useful.</li>
+                            </ul>
+                        </article>
+
+                        <article class="project-card surveillance-topic surveillance-topic--team">
+                            <h2>Team</h2>
+                            <p class="surveillance-team-label">Project contributors</p>
+                            <p>Mukesh Pandeya, Aayush Bista, Biyan Karki, Isha Thapa, and Dikshya Chauhan.</p>
+                            <p class="surveillance-team-label">Mentors</p>
+                            <p>Mr. Nabin Krishna Maskey and Mr. Hemanta Subedi.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>&copy; <span id="year"></span> Mukesh Pandeya. All rights reserved.</footer>
+    </div>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
