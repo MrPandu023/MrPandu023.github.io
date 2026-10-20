@@ -34,6 +34,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
+        html {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        html::-webkit-scrollbar {
+            display: none;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
         }
@@ -75,6 +84,16 @@
             border: 1px solid rgba(255, 255, 255, 0.22);
             box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 12px 32px rgba(0, 0, 0, 0.12);
         }
+
+        .project-slide {
+            transition: opacity 500ms ease;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .project-slide {
+                transition: none;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen overflow-x-hidden bg-darkbg text-slate-100 selection:bg-brand-500 selection:text-black">
@@ -89,16 +108,76 @@
                 Back to portfolio
             </a>
 
-            <section class="space-y-8 pt-8 pb-16">
+            <section class="flex flex-grow flex-col gap-6 pt-8 pb-16">
                 <div class="glass-panel flex flex-col items-center gap-1 rounded-2xl px-6 py-4 text-center sm:px-8">
                     <p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-400">Portfolio Highlights</p>
                     <h1 class="text-3xl font-bold text-white sm:text-4xl">FiveM Dev Projects</h1>
                 </div>
 
-                <div class="mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    <article class="project-card rounded-2xl p-6 transition-transform duration-300 hover:-translate-y-1">
-                        <h2 class="mb-2 text-lg font-bold text-white">Trial center</h2>
-                        <p class="text-sm leading-relaxed text-slate-200">Project showcase coming soon.</p>
+                <div class="grid flex-grow grid-cols-1">
+                    <article id="trial-center" class="project-card rounded-3xl p-5 sm:p-7">
+                        <header class="mb-6">
+                            <h2 class="text-2xl font-bold text-white sm:text-3xl">[FIVEM MAP] Trial Center - Nepali Layout | Lore Friendly [MLO]</h2>
+                        </header>
+
+                        <div class="mb-6 space-y-5 leading-relaxed text-slate-200">
+                            <p>
+                                Enhance your FiveM Roleplay server with a realistic Nepali Driving Trial Center MLO! Designed specifically for driving license exams, vehicle trial tests, and custom RP events, this MLO brings authentic driving school mechanics and Nepali-inspired track elements directly into GTA V.
+                            </p>
+                            <ul class="space-y-1" aria-label="Package features">
+                                <li>✔ High quality MLO</li>
+                                <li>✔ Optimized for FiveM</li>
+                                <li>✔ Perfect for RP servers</li>
+                                <li>✔ Easy installation</li>
+                                <li>✔ Ready for Tebex purchase</li>
+                            </ul>
+                            <p class="text-sm text-amber-100">
+                                ⚠️ Disclaimer: This package contains only the MLO map. It does not include any custom vehicles, peds, or scripts (such as automated driving test scripts). Custom vehicles and scripts shown in promotional materials are for demonstration purposes only.
+                            </p>
+                            <p class="text-sm text-slate-300">
+                                Package encrypted with the help of Fivem Asset Escrow system.
+                            </p>
+                        </div>
+
+                        <div class="mb-8 flex flex-wrap gap-4">
+                            <a
+                                class="inline-flex items-center justify-center rounded-full bg-brand-500 px-6 py-3 font-bold text-black transition-colors hover:bg-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2 focus:ring-offset-darkbg"
+                                href="https://mrpandu.tebex.store/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >Buy now on Tebex</a>
+                            <a
+                                class="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-black/30 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2 focus:ring-offset-darkbg"
+                                href="https://www.youtube.com/watch?v=pIqRrJuiXXE"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill="#FF0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8Z"/>
+                                    <path fill="#fff" d="m9.6 15.6 6.2-3.6-6.2-3.6v7.2Z"/>
+                                </svg>
+                                Watch video on YT
+                            </a>
+                        </div>
+
+                        <div class="overflow-hidden rounded-2xl">
+                            <div class="group relative aspect-video w-full overflow-hidden rounded-2xl bg-black" role="region" aria-roledescription="carousel" aria-label="Trial Center image gallery">
+                                <img
+                                    id="project-slide"
+                                    class="project-slide absolute inset-0 h-full w-full object-cover"
+                                    src="../pictures/Dev%20Works/Trial%20center/trialcenter_1.jpg"
+                                    alt="Trial Center Nepali Layout view 1"
+                                >
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" aria-hidden="true"></div>
+                                <div class="absolute inset-x-0 bottom-0 flex items-center justify-between gap-4 p-4 sm:p-6">
+                                    <div class="flex items-center gap-3">
+                                        <span id="project-slide-count" class="text-sm font-medium text-white" aria-live="polite">1 / 6</span>
+                                        <button id="previous-project-slide" class="rounded-full bg-black/50 px-4 py-2 text-xl text-white backdrop-blur transition-colors hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-brand-400" type="button" aria-label="Previous image">&larr;</button>
+                                        <button id="next-project-slide" class="rounded-full bg-black/50 px-4 py-2 text-xl text-white backdrop-blur transition-colors hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-brand-400" type="button" aria-label="Next image">&rarr;</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </article>
                 </div>
             </section>
@@ -110,6 +189,44 @@
     </div>
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        const projectSlides = [
+            { src: '../pictures/Dev%20Works/Trial%20center/trialcenter_1.jpg', alt: 'Trial Center Nepali Layout view 1' },
+            { src: '../pictures/Dev%20Works/Trial%20center/trialcenter_2.jpg', alt: 'Trial Center Nepali Layout view 2' },
+            { src: '../pictures/Dev%20Works/Trial%20center/trialcenter_3.jpg', alt: 'Trial Center Nepali Layout view 3' },
+            { src: '../pictures/Dev%20Works/Trial%20center/trialcenter_4.jpg', alt: 'Trial Center Nepali Layout view 4' },
+            { src: '../pictures/Dev%20Works/Trial%20center/trialcenter_5.jpg', alt: 'Trial Center Nepali Layout view 5' },
+            { src: '../pictures/Dev%20Works/Trial%20center/trialcenter_6.jpg', alt: 'Trial Center Nepali Layout view 6' }
+        ];
+        const projectSlide = document.getElementById('project-slide');
+        const projectSlideCount = document.getElementById('project-slide-count');
+        let activeProjectSlide = 0;
+
+        function showProjectSlide(index) {
+            activeProjectSlide = (index + projectSlides.length) % projectSlides.length;
+            projectSlide.classList.add('opacity-0');
+            window.setTimeout(() => {
+                projectSlide.src = projectSlides[activeProjectSlide].src;
+                projectSlide.alt = projectSlides[activeProjectSlide].alt;
+                projectSlideCount.textContent = `${activeProjectSlide + 1} / ${projectSlides.length}`;
+                projectSlide.classList.remove('opacity-0');
+            }, 250);
+        }
+
+        function showRandomProjectSlide() {
+            const nextIndex = Math.floor(Math.random() * (projectSlides.length - 1));
+            showProjectSlide(nextIndex >= activeProjectSlide ? nextIndex + 1 : nextIndex);
+        }
+
+        document.getElementById('previous-project-slide').addEventListener('click', () => {
+            showProjectSlide(activeProjectSlide - 1);
+        });
+        document.getElementById('next-project-slide').addEventListener('click', () => {
+            showProjectSlide(activeProjectSlide + 1);
+        });
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            window.setInterval(showRandomProjectSlide, 5000);
+        }
     </script>
 </body>
 </html>

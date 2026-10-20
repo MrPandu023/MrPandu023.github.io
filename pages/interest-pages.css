@@ -205,6 +205,124 @@ h1 {
     text-underline-offset: 3px;
 }
 
+.youtube-promo {
+    position: relative;
+    display: flex;
+    min-height: 12rem;
+    align-items: center;
+    overflow: hidden;
+    background: rgba(255, 255, 255, .2);
+}
+
+.streaming-card-grid .youtube-promo {
+    min-height: 18.75rem;
+}
+
+.youtube-promo--youtube .youtube-promo__background {
+    color: rgba(255, 0, 0, .2);
+}
+
+.project-card.youtube-promo--youtube .youtube-promo__button {
+    border-color: rgba(255, 0, 0, .4);
+}
+
+.youtube-promo__background {
+    position: absolute;
+    top: 50%;
+    right: -1.25rem;
+    width: 11rem;
+    height: 11rem;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, .14);
+    pointer-events: none;
+}
+
+.youtube-promo__content {
+    position: relative;
+    z-index: 1;
+}
+
+.project-card .youtube-promo__button {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    margin-top: .75rem;
+    border: 1px solid rgba(255, 255, 255, .28);
+    border-radius: 9999px;
+    padding: .65rem 1.25rem;
+    background: rgba(20, 20, 20, .58);
+    color: #fff;
+    font-size: .875rem;
+    font-weight: 700;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease;
+}
+
+.project-card .youtube-promo__button:hover {
+    border-color: rgba(255, 255, 255, .45);
+    background: rgba(35, 35, 35, .78);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.project-card.youtube-promo--youtube .youtube-promo__button:hover {
+    border-color: rgba(255, 0, 0, .7);
+}
+
+.youtube-promo__button svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.tiktok-promo .youtube-promo__background {
+    right: -2.5rem;
+    color: rgba(0, 0, 0, .2);
+}
+
+.project-card .tiktok-promo__button {
+    border-color: rgba(0, 0, 0, .4);
+    background: rgba(20, 20, 20, .72);
+}
+
+.project-card .tiktok-promo__button:hover {
+    border-color: rgba(0, 0, 0, .7);
+    background: rgba(35, 35, 35, .9);
+}
+
+.kick-promo .youtube-promo__background {
+    color: rgba(83, 252, 24, .18);
+}
+
+.project-card .kick-promo__button {
+    border-color: rgba(83, 252, 24, .35);
+}
+
+.project-card .kick-promo__button svg {
+    color: #53fc18;
+}
+
+.project-card .kick-promo__button:hover {
+    border-color: rgba(83, 252, 24, .65);
+}
+
+.facebook-promo .youtube-promo__background {
+    color: rgba(24, 119, 242, .2);
+}
+
+.project-card .facebook-promo__button {
+    border-color: rgba(24, 119, 242, .4);
+}
+
+.project-card .facebook-promo__button svg {
+    color: #1877f2;
+}
+
+.project-card .facebook-promo__button:hover {
+    border-color: rgba(24, 119, 242, .7);
+}
+
 .project-more-link {
     display: inline-block;
     margin-top: 1.25rem;
@@ -616,6 +734,10 @@ footer {
 
     .card-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .streaming-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .surveillance-topic-grid {
